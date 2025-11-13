@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATNAIDER SYSTEMS - Servicio Técnico Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #00a86b 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #00a86b 50%, #4dd0e1 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position: 0 0; }
+            100% { background-position: 1200px 0; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0066cc;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #0066cc;
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #0066cc;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #0066cc, #00a86b);
+            border-radius: 2px;
+        }
+
+        /* Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid #0066cc;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,102,204,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Imagen Hero */
+        .hero-image {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        /* Galería de servicios con imágenes */
+        .service-with-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image {
+            display: none;
+        }
+
+        /* Gradientes para cada servicio */
+        .service-card:nth-child(1) {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            border-top-color: #0066cc;
+        }
+
+        .service-card:nth-child(2) {
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2f1 100%);
+            border-top-color: #00a86b;
+        }
+
+        .service-card:nth-child(3) {
+            background: linear-gradient(135deg, #ffffff 0%, #e1f5fe 100%);
+            border-top-color: #4dd0e1;
+        }
+
+        .service-card:nth-child(4) {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            border-top-color: #0066cc;
+        }
+
+        .service-card:nth-child(5) {
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2f1 100%);
+            border-top-color: #00a86b;
+        }
+
+        .service-card:nth-child(6) {
+            background: linear-gradient(135deg, #ffffff 0%, #e1f5fe 100%);
+            border-top-color: #4dd0e1;
+        }
+
+        .service-card:nth-child(7) {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            border-top-color: #0066cc;
+        }
+
+        .service-card:nth-child(8) {
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2f1 100%);
+            border-top-color: #00a86b;
+        }
+
+        .service-card:nth-child(9) {
+            background: linear-gradient(135deg, #ffffff 0%, #e1f5fe 100%);
+            border-top-color: #4dd0e1;
+        }
+
+        .service-card:nth-child(10) {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            border-top-color: #0066cc;
+        }
+
+        /* Sección de confianza */
+        .trust-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .trust-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        /* Galería visual */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Galería destacada grande */
+        .featured-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .featured-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .featured-item:nth-child(1) {
+            background: linear-gradient(135deg, #003d5c 0%, #0066cc 50%, #4dd0e1 100%);
+        }
+
+        .featured-item:nth-child(2) {
+            background: linear-gradient(135deg, #004d40 0%, #00a86b 50%, #26c6da 100%);
+        }
+
+        .featured-item:nth-child(3) {
+            background: linear-gradient(135deg, #01579b 0%, #0288d1 50%, #4dd0e1 100%);
+        }
+
+        .featured-item:nth-child(4) {
+            background: linear-gradient(135deg, #004d40 0%, #00897b 50%, #4dd0e1 100%);
+        }
+
+        .featured-item:nth-child(5) {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 50%, #00a86b 100%);
+        }
+
+        .featured-item:nth-child(6) {
+            background: linear-gradient(135deg, #006064 0%, #00acc1 50%, #26c6da 100%);
+        }
+
+        .featured-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,102,204,0.3);
+        }
+
+        .featured-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s;
+            display: block;
+        }
+
+        .featured-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .featured-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            color: white;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .featured-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: rgba(0,168,107,0.95);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+
+        .service-card h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* Sobre Nosotros */
+        #sobre-nosotros {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #0066cc;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .credentials {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .credential-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .credential-item strong {
+            display: block;
+            font-size: 2rem;
+            color: #00a86b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #0066cc, #00a86b);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            table th,
+            table td {
+                padding: 1rem !important;
+            }
+
+            .hero-image {
+                max-width: 100%;
+                margin-top: 1rem;
+            }
+
+            .visual-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-section {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-item {
+                height: 300px;
+            }
+
+            .featured-title {
+                font-size: 1.1rem;
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">MATNAIDER SYSTEMS</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#sobre-nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>MATNAIDER SYSTEMS</h1>
+            <p>Tu Aliado Tecnológico de Confianza - Soluciones Profesionales a tu Alcance</p>
+            <div class="cta-buttons">
+                <a href="#contacto" class="btn btn-primary">Solicitar Servicio</a>
+                <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+            </div>
+            <div class="hero-image">
+                <svg width="600" height="400" viewBox="0 0 600 400" style="max-width: 100%; height: auto;">
+                    <defs>
+                        <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00a86b;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Laptop -->
+                    <rect x="150" y="120" width="300" height="200" rx="10" fill="url(#laptopGrad)" opacity="0.9"/>
+                    <rect x="160" y="130" width="280" height="160" rx="5" fill="#ffffff"/>
+                    <rect x="280" y="295" width="40" height="10" rx="3" fill="url(#laptopGrad)"/>
+                    <!-- Herramientas -->
+                    <circle cx="100" cy="200" r="25" fill="#4dd0e1" opacity="0.8"/>
+                    <text x="100" y="210" font-size="30" text-anchor="middle">🔧</text>
+                    <circle cx="500" cy="200" r="25" fill="#00a86b" opacity="0.8"/>
+                    <text x="500" y="210" font-size="30" text-anchor="middle">💻</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card service-with-image">
+                <div class="service-icon">🔧</div>
+                <h3>Reparación de Hardware</h3>
+                <p>Diagnóstico y reparación de componentes de laptops y PC. Soluciones rápidas y efectivas.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">💻</div>
+                <h3>Instalación de Software</h3>
+                <p>Instalación de sistemas operativos, drivers y programas especializados.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">📦</div>
+                <h3>Paquete Office</h3>
+                <p>Instalación completa de Microsoft Office: Word, Excel y PowerPoint para tu productividad.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">🧹</div>
+                <h3>Limpieza y Mantenimiento</h3>
+                <p>Mantenimiento preventivo y correctivo para alargar la vida útil de tu equipo.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">💾</div>
+                <h3>Recuperación de Datos</h3>
+                <p>Rescate de información importante de discos duros y memorias dañadas.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">🔐</div>
+                <h3>Recuperación de Contraseñas</h3>
+                <p>Recuperación profesional de contraseñas de sistemas y cuentas bloqueadas.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">⚡</div>
+                <h3>Actualización de Componentes</h3>
+                <p>Mejora el rendimiento de tu equipo con actualizaciones de RAM, SSD y más.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">🏠</div>
+                <h3>Servicio a Domicilio</h3>
+                <p>Llevamos el servicio técnico hasta tu hogar u oficina para tu comodidad.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">🌐</div>
+                <h3>Asistencia Online</h3>
+                <p>Soporte técnico remoto para solucionar problemas desde cualquier lugar.</p>
+            </div>
+
+            <div class="service-card service-with-image">
+                <div class="service-icon">🔍</div>
+                <h3>Diagnóstico Gratuito</h3>
+                <p>Evaluación sin costo de tu equipo para determinar el problema exacto.</p>
+            </div>
+        </div>
+
+        <!-- Sección de confianza -->
+        <div class="trust-section">
+            <div class="trust-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Garantía">
+                <h4 style="color: #0066cc; margin-bottom: 0.5rem;">Trabajo Garantizado</h4>
+                <p>Respaldamos todos nuestros servicios</p>
+            </div>
+            <div class="trust-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3030/3030349.png" alt="Rápido">
+                <h4 style="color: #0066cc; margin-bottom: 0.5rem;">Servicio Rápido</h4>
+                <p>Soluciones en el menor tiempo posible</p>
+            </div>
+            <div class="trust-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Profesional">
+                <h4 style="color: #0066cc; margin-bottom: 0.5rem;">Técnicos Certificados</h4>
+                <p>Personal capacitado y experimentado</p>
+            </div>
+            <div class="trust-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Precio Justo">
+                <h4 style="color: #0066cc; margin-bottom: 0.5rem;">Precios Justos</h4>
+                <p>Tarifas competitivas y transparentes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="sobre-nosotros">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Experiencia y Profesionalismo</h3>
+                <p>En MATNAIDER SYSTEMS nos especializamos en brindar soluciones tecnológicas integrales para laptops y computadoras. Con 5 años de experiencia en el mercado, nos hemos consolidado como un referente de calidad y confianza en Esmeraldas y Atacames.</p>
+                <p>Contamos con certificaciones en Informática y Tecnologías de la Información, garantizando un servicio profesional y actualizado con las últimas tendencias tecnológicas.</p>
+                <p>Nuestro compromiso es ofrecer soluciones rápidas, efectivas y accesibles, con atención personalizada y servicio tanto a domicilio como online.</p>
+                
+                <!-- Galería visual -->
+                <div class="visual-gallery" style="margin-top: 2rem;">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipo profesional">
+                        <div class="gallery-overlay">
+                            <h4>Equipo Profesional</h4>
+                            <p>Técnicos certificados</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Reparación experta">
+                        <div class="gallery-overlay">
+                            <h4>Reparación Experta</h4>
+                            <p>Soluciones efectivas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="credentials">
+                    <div class="credential-item">
+                        <strong>5+</strong>
+                        <p>Años de Experiencia</p>
+                    </div>
+                    <div class="credential-item">
+                        <strong>✓</strong>
+                        <p>Certificado en Informática</p>
+                    </div>
+                    <div class="credential-item">
+                        <strong>✓</strong>
+                        <p>Certificado en TI</p>
+                    </div>
+                </div>
+                <div class="credentials" style="margin-top: 1rem;">
+                    <div class="credential-item">
+                        <strong>📍</strong>
+                        <p>Ecuador, Esmeraldas y Atacames</p>
+                    </div>
+                </div>
+                <!-- Imagen adicional -->
+                <div style="margin-top: 2rem; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <img src="https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tecnología moderna" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Visual Destacada -->
+    <section style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 80px 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Nuestro Trabajo en Acción</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 700px; margin: 0 auto 3rem;">
+                Experiencia profesional en cada servicio que realizamos
+            </p>
+            
+            <div class="featured-gallery">
+                <div class="featured-item">
+                    <div class="featured-title">Mantenimiento Preventivo de PCs</div>
+                    <div class="featured-badge">✓ Servicio Profesional</div>
+                </div>
+
+                <div class="featured-item">
+                    <div class="featured-title">Implementación de Software a Medida</div>
+                    <div class="featured-badge">✓ Soluciones Personalizadas</div>
+                </div>
+
+                <div class="featured-item">
+                    <div class="featured-title">Arreglos de Sistemas Operativos y Recuperación</div>
+                    <div class="featured-badge">✓ Recuperación Garantizada</div>
+                </div>
+
+                <div class="featured-item">
+                    <div class="featured-title">Reparación Experta de Hardware</div>
+                    <div class="featured-badge">✓ Técnicos Certificados</div>
+                </div>
+
+                <div class="featured-item">
+                    <div class="featured-title">Soporte Técnico Remoto 24/7</div>
+                    <div class="featured-badge">✓ Disponibilidad Total</div>
+                </div>
+
+                <div class="featured-item">
+                    <div class="featured-title">Servicio a Domicilio en Esmeraldas</div>
+                    <div class="featured-badge">✓ A tu Puerta</div>
+                </div>
+            </div>
+
+            <!-- Estadísticas con íconos -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 4rem;">
+                <div style="text-align: center; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; color: #0066cc; margin-bottom: 0.5rem;">500+</div>
+                    <p style="color: #666; font-weight: 600;">Clientes Satisfechos</p>
+                </div>
+                <div style="text-align: center; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; color: #00a86b; margin-bottom: 0.5rem;">1000+</div>
+                    <p style="color: #666; font-weight: 600;">Equipos Reparados</p>
+                </div>
+                <div style="text-align: center; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; color: #4dd0e1; margin-bottom: 0.5rem;">98%</div>
+                    <p style="color: #666; font-weight: 600;">Tasa de Éxito</p>
+                </div>
+                <div style="text-align: center; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; color: #0066cc; margin-bottom: 0.5rem;">24h</div>
+                    <p style="color: #666; font-weight: 600;">Tiempo Promedio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precios -->
+    <section id="precios" style="background: #f9f9f9;">
+        <h2 class="section-title">Nuestros Precios</h2>
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); overflow: hidden;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0066cc, #00a86b); color: white;">
+                            <th style="padding: 1.5rem; text-align: left; font-size: 1.1rem;">Servicio</th>
+                            <th style="padding: 1.5rem; text-align: center; font-size: 1.1rem;">Modalidad</th>
+                            <th style="padding: 1.5rem; text-align: center; font-size: 1.1rem;">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 1.5rem;">Diagnóstico (sin reparación)</td>
+                            <td style="padding: 1.5rem; text-align: center;">Online o a domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #00a86b;">US$ 12-15</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0; background: #f9f9f9;">
+                            <td style="padding: 1.5rem;">Mantenimiento preventivo (limpieza de software, eliminación de archivos basura, optimización)</td>
+                            <td style="padding: 1.5rem; text-align: center;">Online o a domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #00a86b;">US$ 18-25</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 1.5rem;">Mantenimiento correctivo básico (limpieza + reparación menor de software/drivers)</td>
+                            <td style="padding: 1.5rem; text-align: center;">A domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #00a86b;">US$ 28-35</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0; background: #f9f9f9;">
+                            <td style="padding: 1.5rem;">Formateo + reinstalación de sistema operativo + drivers + instalación de paquete Office (Word, Excel, PowerPoint)</td>
+                            <td style="padding: 1.5rem; text-align: center;">Online o a domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #00a86b;">US$ 30-40</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 1.5rem;">Recuperación de contraseñas olvidadas / acceso bloqueado / soporte especial</td>
+                            <td style="padding: 1.5rem; text-align: center;">Online o a domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #00a86b;">US$ 22-35</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0; background: #f9f9f9;">
+                            <td style="padding: 1.5rem;"><strong>Servicio completo "Premium"</strong> (formateo + Office + optimización + mantenimiento físico ligero)</td>
+                            <td style="padding: 1.5rem; text-align: center;">A domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #0066cc; font-size: 1.1rem;">US$ 40-55</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1.5rem;">Desplazamiento fuera de zona o atención urgente / fuera de horario</td>
+                            <td style="padding: 1.5rem; text-align: center;">A domicilio</td>
+                            <td style="padding: 1.5rem; text-align: center; font-weight: bold; color: #00a86b;">US$ 5-10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #4dd0e1, #00a86b); color: white; border-radius: 15px;">
+                <p style="font-size: 1.1rem; margin: 0;">💡 <strong>Los precios pueden variar según la complejidad del problema</strong></p>
+                <p style="margin: 0.5rem 0 0 0;">Diagnóstico gratuito en algunos casos - ¡Contáctanos para más información!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horarios -->
+    <section style="background: white;">
+        <h2 class="section-title">Horarios de Atención</h2>
+        <div style="text-align: center; font-size: 1.2rem;">
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
+                <p style="margin-bottom: 1rem;"><strong>Lunes a Viernes:</strong> 7:00 AM - 7:00 PM</p>
+                <p><strong>Sábado y Domingo:</strong> 8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 style="margin-bottom: 2rem; font-size: 2rem;">Información de Contacto</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <div>
+                        <strong>Teléfonos / WhatsApp:</strong><br>
+                        099 200 5980<br>
+                        099 181 9922
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div>
+                        <strong>Correos Electrónicos:</strong><br>
+                        chilasnaider19@gmail.com<br>
+                        xdvss630@gmail.com
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <strong>Ubicación:</strong><br>
+                        Ecuador, Esmeraldas y Atacames
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 1.5rem; color: #0066cc;">Envíanos un Mensaje</h3>
+                <form onsubmit="enviarFormulario(event)">
+                    <div class="form-group">
+                        <label>Nombre Completo:</label>
+                        <input type="text" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono:</label>
+                        <input type="tel" required placeholder="Tu número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label>Correo Electrónico:</label>
+                        <input type="email" required placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje:</label>
+                        <textarea required placeholder="Describe tu problema o servicio requerido..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/593992005980" target="_blank" class="whatsapp-float" title="Contactar por WhatsApp">
+        💬
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MATNAIDER SYSTEMS. Todos los derechos reservados.</p>
+        <p>Servicio Técnico Profesional | Ecuador, Esmeraldas y Atacames</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        function enviarFormulario(e) {
+            e.preventDefault();
+            alert('¡Gracias por contactarnos! Te responderemos a la brevedad posible.');
+            e.target.reset();
+        }
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .credential-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
